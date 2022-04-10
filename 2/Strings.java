@@ -163,26 +163,58 @@ public class Strings {
 		}
 		return length;
 	}
-	
+	//подсчет количество слов  в строке
 	public static int countNumberOfWords(String s) {
 		String[] str = s.split(" ");
 		return str.length;
 	}
-    
+       // добавление пробелов в строку
 	public static StringBuffer addSpace(StringBuffer s,int index) {
 		
 		s.insert(index," ");
 		return s;
 	}
-	
+	//является ли строка палиндромом
 	public static boolean isPalindrome(String text) {
 	    return text.replaceAll("\\W","")
 	               .equalsIgnoreCase(new StringBuilder(text.replaceAll("\\W",""))
 	               .reverse().toString());
 	}
-	
+	// замена подстроки в строке
 	public static String replaceSubstring(String s,String oldSub, String newSub) {
 		
 		return s.replace(oldSub, newSub);
 	}
+	//Расстояние между подстроками
+	public static int distance betweenSubstrings(String s , String firstSub,String secondSub){
+		
+		if (firstSub .equals( secondSub)){
+        		return 0 ;
+		}
+  
+    	
+    		String words[] = s.split(" ");
+  
+    
+    		int min_dist = (words.length) + 1;
+  
+   
+    		for (int index = 0;index < words.length ; index ++){
+  
+        	if (words[index] .equals( firstSub))
+        		{
+            		for (int search = 0;search < words.length; search ++){
+                		if (words[search] .equals(secondSub)){
+                    			int curr = Math.abs(index - search) - 1;
+					if (curr < min_dist){
+                        			min_dist = curr ;
+					}
+				}
+			}
+		}
+		}
+      
+    		return min_dist
+	}
+  
 }
