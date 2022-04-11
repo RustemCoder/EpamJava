@@ -68,26 +68,24 @@ public class Strings {
 	public static String deleteTheSameChars(String str)
     {
 		String newString = "";
-        HashMap<Character, Integer> count = new HashMap<>();
-        /*Store duplicates present
-        in the passed string */
-        for (int i = 0; i < str.length(); i++) {
-            if (!count.containsKey(str.charAt(i)))
-                count.put(str.charAt(i), 1);
-            else
-                count.put(str.charAt(i),
-                          count.get(str.charAt(i)) + 1);
-        }
+        	HashMap<Character, Integer> count = new HashMap<>();
+     
+        	for (int i = 0; i < str.length(); i++) {
+            		if (!count.containsKey(str.charAt(i)))
+                		count.put(str.charAt(i), 1);
+            		else
+                		count.put(str.charAt(i),
+                          	count.get(str.charAt(i)) + 1);
+        	}
  
-        /*Print duplicates in sorted order*/
-        for (Map.Entry mapElement : count.entrySet()) {
-            char key = (char)mapElement.getKey();
-            int value = ((int)mapElement.getValue());
- 
-            if (value <2)
-              newString+=key;
-        }
-        return newString;
+        	for (Map.Entry mapElement : count.entrySet()) {
+            		char key = (char)mapElement.getKey();
+            		int value = ((int)mapElement.getValue());
+            
+			if (value <2)
+              			newString+=key;
+        	}
+        	return newString;
     }
 	//Частота встречаемости символа в строке
 	public static void countChars(String str)
@@ -192,26 +190,22 @@ public class Strings {
         		return 0 ;
 		}
   
-    	
     		String words[] = s.split(" ");
-  
     
     		int min_dist = (words.length) + 1;
   
-   
     		for (int index = 0;index < words.length ; index ++){
   
-        	if (words[index] .equals( firstSub))
-        		{
-            		for (int search = 0;search < words.length; search ++){
-                		if (words[search] .equals(secondSub)){
-                    			int curr = Math.abs(index - search) - 1;
-					if (curr < min_dist){
-                        			min_dist = curr ;
+        		if (words[index] .equals( firstSub)){
+            			for (int search = 0;search < words.length; search ++){
+                			if (words[search] .equals(secondSub)){
+                    				int curr = Math.abs(index - search) - 1;
+						if (curr < min_dist){
+                        				min_dist = curr ;
+						}	
 					}
 				}
 			}
-		}
 		}
       
     		return min_dist
